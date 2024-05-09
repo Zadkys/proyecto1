@@ -1,0 +1,233 @@
+/* predeterminados globales */
+*{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;}
+
+*{
+  margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body{
+  margin: 0 auto;
+  max-width: 1200px;
+  font-family: 'Lato';
+  color: #333;
+}
+
+image {
+  max-width: 100%;
+}
+
+/* BARRA DE NAVEGACION */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Seleccion de barra de navegacion */
+.selec {
+  padding: 2px;
+  border: 5px solid #4caf50;
+  border-style:double ;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.icon-cart {
+  width: 30px;
+  height: 30px;
+}
+.brand {
+  font-size: 24px;
+}
+
+.selec {
+  padding: 2px;
+  border: 5px solid #4caf50;
+  border-style:double ;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.navbar nav ul li b {
+  text-decoration: none;
+  transition: color 0.3s ease;
+  display: inline-block;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.navbar nav ul li b:hover {
+  background-color: #368039;
+}
+
+.navbar nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navbar nav ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.navbar nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+  color: #4caf50;
+}
+
+/* Estilos de la sección de Misión y Visión */
+.mission-vision {
+  text-align: center;
+  padding: 20px;
+}
+
+.mission-vision h2 {
+  color: #333;
+}
+
+.mission-vision p {
+  color: #666;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/* Contacto */
+.special-promotions {
+  text-align: center;
+  padding: 0px;
+}
+
+.special-promotions .social-button {
+  text-decoration: none;
+  text-align: center;
+  padding: 0px;
+  color: #333;
+  
+}
+
+.special-promotions .social-button:hover{
+  color: #368039;
+}
+
+.special-promotions .title {
+  text-align: center;
+  padding: 0px;
+  font-size: 50px;
+  border-radius: 5px #4caf50;
+  -webkit-border-radius: 5px #4caf50;
+  -moz-border-radius: 5px #4caf50;
+  -ms-border-radius: 5px #4caf50;
+  -o-border-radius: 5px #4caf50;
+}
+
+.promotions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.promotions-grid .promotion {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  transition: transform 0.3s ease;
+}
+
+.promotions-grid .promotion:hover {
+  transform: translateY(-5px);
+}
+
+.promotions-grid .promotion img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.promotions-grid .promotion h3 {
+  margin-top: 10px;
+}
+
+.promotions-grid .promotion .btn {
+  display: inline-block;
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.promotions-grid .promotion .btn:hover {
+  background-color: #368039;
+}
+
+/* Estilos del pie de página */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+.footer .footer-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer .contact-info h3,
+.footer .social-media h3 {
+  color: #fff;
+}
+
+.footer .contact-info p {
+  color: #ccc;
+}
+
+.footer .social-media ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer .social-media ul li {
+  display: inline;
+  margin-right: 10px;
+}
+
+.footer .social-media ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer .social-media ul li a:hover {
+  color: #4caf50;
+}
+
+.footer .copyright {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.line {
+  border-bottom: 5px double #333;
+  margin-left: 10%;
+  margin-right: 10%; 
+}

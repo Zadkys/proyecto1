@@ -1,0 +1,190 @@
+/*logo*/
+header img {
+    height: 80px;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 10rem;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+/*texto n*/
+header p {
+    font-size: 19px;
+    font-weight: 750;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    height: -120px;
+    margin: -10;
+    padding: 0;
+    position: absolute;
+    top: 18rem;
+    left: 50%;
+    transform: translate(-50%, -520%);
+    border-bottom: 2px solid silver;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.navbar {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.brand {
+    font-size: 24px;
+    margin-right: auto;
+}
+
+.login-register {
+    margin-left: auto;
+    text-decoration: none;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    -webkit-transition: background-color 0.3s ease;
+    -moz-transition: background-color 0.3s ease;
+    -ms-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
+}
+
+.login-register:hover {
+    background-color: #45a049;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    position: relative;
+    perspective: 1000px;
+}
+
+.section {
+    margin-bottom: 50px;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+.carousel img {
+    scroll-snap-align: center;
+    width: 100%;
+    max-width: 300px;
+    margin-right: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-section {
+    position: relative;
+    transition: transform 0.5s ease;
+}
+
+/*giro*/
+.form-section.inSesion {
+    transform: rotateY(0deg);
+}
+
+.form-section.registrarse {
+    transform: rotateY(180deg);
+}
+/*giro*/
+
+.form-section form {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateZ(50px);
+}
+
+.form-section h2 {
+    margin: 25%;
+    margin-bottom: 20px;
+    transform: translateZ(50px);
+}
+
+.form-section input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transform: translateZ(50px);
+}
+
+.form-section input[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+    transform: translateZ(50px);
+}
+/*giro*/
+/*boton giro*/
+.boton_giro {
+    font-size: 14px;
+    font-weight: 550;
+    position: absolute;
+    top: calc(50% - -25px);
+    left: calc(50% - 75px);
+    cursor: pointer;
+    color: #929292;
+    background-color: transparent;
+    border: none;
+    transition: color 0.3s ease, transform 2.5s linear;
+}
+
+.boton_giro:hover {
+    color: #a3a3a3;
+    font-size: 13.9px;
+}
+
+/*giro animacion / inclinacion*/
+.form-section.inSesion {
+    transform: rotateY(0deg);
+}
+
+.form-section.registrarse {
+    transform: rotateY(180deg);
+}
+
+/*giro*/
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 375px) {
+    header p {
+        font-size: 17px;
+        transform: translate(-50%, -600%);
+    }
+}
