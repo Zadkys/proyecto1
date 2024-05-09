@@ -28,10 +28,13 @@ session_start();
               >Iniciar sesión / Registrarse</a
             >
             <?php }else{ ?>
-              <a class="login-register" href="cerrar.php"
-              >Cerrar Sesion</a
-            >
-              <?php } ?>
+              <a class="login-register" href="cerrar.php" >Cerrar Sesion</a>
+              <?php 
+              if($_SESSION['Admin']){
+                ?>
+              <a class="login-register" href="catalogue_admin.php" >Catalogo Admin</a>
+
+          <?php }} ?>
           </li>
         </ul>
       </nav>

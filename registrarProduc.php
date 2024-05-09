@@ -13,7 +13,7 @@ include "conexionUser.php";
 
     if ($sql) {
         // Registro exitoso, redirige al usuario a la página principal
-        header('Location: ./newproduct.html');
+        header('Location: ./catalogue_admin.php');
         exit();
     } else {
         // Si ocurre un error durante el registro, muestra un mensaje de error
