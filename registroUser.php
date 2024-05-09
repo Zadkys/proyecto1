@@ -5,7 +5,7 @@ include "conexionUser.php";
     // Obtiene los datos del formulario
     $nombre = $_POST['fullname'];
     $correo = $_POST['email'];
-    $contra = $_POST['pass'];
+    $contra = $_POST['contra'];
     $Admin = false;
 
     // Consulta para insertar un nuevo usuario en la base de datos
@@ -13,7 +13,7 @@ include "conexionUser.php";
 
     if ($sql) {
         // Registro exitoso, redirige al usuario a la página principal
-        header('Location: ./index.html');
+        header('Location: ./index.php');
         exit();
     } else {
         // Si ocurre un error durante el registro, muestra un mensaje de error

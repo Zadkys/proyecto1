@@ -14,16 +14,16 @@
     <div class="brand">Ykdaz Clothes Store</div>
     <nav>
       <ul>
-        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.php">Inicio</a></li>
         <li><a class="selec" href="catalogue.php">Catálogo</a></li>
         <li><a href="./catalogue.php#special-section">Ofertas</a></li>
         <li><a href="contact.html">Contacto</a></li>
-        <li><a href="logreg.html" class="login-register">Iniciar sesión / Registrarse</a></li>
+        <li><a href="logreg.php" class="login-register">Iniciar sesión / Registrarse</a></li>
       </ul>
     </nav>
 
     <!-- CARRITO -->
-    <div class="containerIcon" onclick="window.location.href = 'carrito.html';" style="cursor:pointer;" >
+    <div class="containerIcon" onclick="window.location.href = 'carrito.php';" style="cursor:pointer;" >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-cart">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
       </svg>
@@ -79,9 +79,10 @@
                         <h5> <?php echo $row['specs'] ?></h5>
 
                         <form action="agregarCarrito.php" method="POST">
-                            <input type="hidden" value="<?php $row['nombre'] ?>" name="nombre">
-                            <input type="hidden" value="<?php $row['precio'] ?>" name="precio">
-                            <input type="hidden" value="<?php $row['specs'] ?>" name="specs">
+                            <input type="hidden" value="<?php echo $row['nombre']; ?>" name="nombre">
+                            <input type="hidden" value="<?php echo $row['precio']; ?>" name="precio">
+                            <input type="hidden" value="<?php echo $row['specs']; ?>" name="specs">
+                            <input type="hidden" value="<?php echo $row['link']; ?>" name="link">
                             <input type="submit">Agregar al carrito</input>
                         </form>
                 </div>

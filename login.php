@@ -1,25 +1,37 @@
 <?php
-
-include 'conexionUser.php';
-
+include "./conexionUser.php";
+$correo = $_POST['correo'];
+$contra = $_POST['contra'];
 session_start();
+$_SESSION['correo'] = ['correo'];
 
-$correo = $_POST["correo"];
-$contra = $_POST["contra"];
+$consulta = "SELECT*FROM user WHERE correo='$correo' and contra='$contra'";
+$result = mysqli_query($con, $consulta);
 
-$consulta = mysqli_query($con, "SELECT * from user where correo = '$correo' && contra = '$contra'");
 
-$row = mysqli_fetch_array($consulta);
 
-$_SESSION['id'] = $row['id'];
-$_SESSION['nombre'] = $row['nombre'];
-$_SESSION['correo'] = $row['correo'];
-$_SESSION['contra'] = $row['contra'];
-$_SESSION['Admin'] = $row['Admin'];
+$filas = mysqli_fetch_array($result);
+if ($filas["correo"]) {
+    $_SESSION['id'] = $filas["id"];
+    $_SESSION['nombre'] = $filas["nombre"];
+    $_SESSION['contrasena'] = $filas["contrasena"];
+    $_SESSION['correo'] = $filas["correo"];
 
-if(!isset($_SESSION['id'])){
-    header ('location: index.html');
-}else{
-    header ('location: index.php');
+    if ($filas["Admin"]) {
+        $_SESSION['Admin'] = true;
+        header("location: ./index.php");
+
+    } else {
+        $_SESSION['Admin'] = false;
+        header("location: ./index.php");
+    }
+
+} else {
+    header("Location: ./logreg.php");
 }
+
+
+
+exit;
+
 ?>
