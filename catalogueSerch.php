@@ -1,3 +1,9 @@
+<?php
+session_start();
+$key = $_POST["key"]
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -57,7 +63,7 @@
     <!-- productos: -->
     <section class="featured-categories">
       <h2>Catálogo:</h2><br>
-
+      
       <div style="display: flex; margin-bottom: 100px;">
       <form action="catalogueSerch.php" method="POST">
         <input type="text" name="key">
@@ -70,7 +76,7 @@
         include "conexionUser.php"; // Incluye el archivo de conexión
         
         // Consulta SQL para obtener todos los productos
-        $sql = mysqli_query($con, "SELECT * FROM product");
+        $sql = mysqli_query($con, "SELECT * FROM product WHERE nombre ='$key'");
 
         // Verifica si se encontraron productos
         if (mysqli_num_rows($sql) > 0) {
