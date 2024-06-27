@@ -1,9 +1,17 @@
-*{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;}
-*{
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   margin: 0;
-padding: 0;
-box-sizing: border-box;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
 /* Estilos de la barra de navegación */
 .navbar {
   background-color: #333;
@@ -12,49 +20,44 @@ box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
+}
+
+.selec {
+  padding: 2px;
+  border: 5px solid #4caf50;
+  border-style: double;
+  border-radius: 5px;
 }
 
 .brand {
   font-size: 24px;
 }
 
+.navbar nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar nav ul li a,
 .navbar nav ul li b {
-  text-decoration: none;
-  transition: color 0.3s ease;
-  display: inline-block;
-  background-color: #4caf50;
   color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  display: inline-block;
   padding: 10px 20px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
+.navbar nav ul li a:hover,
 .navbar nav ul li b:hover {
   background-color: #368039;
-}
-
-.navbar nav ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.navbar nav ul li {
-  display: inline;
-  margin-right: 20px;
-}
-
-.navbar nav ul li a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.navbar nav ul li a:hover {
   color: #4caf50;
 }
 
-/* Estilos de productos en catalogo */
+/* Estilos de productos en catálogo */
 .featured-categories {
   text-align: center;
   padding: 20px;
@@ -62,158 +65,69 @@ box-sizing: border-box;
 
 .featured-categories h2 {
   font-size: 50px;
+  margin-bottom: 20px;
 }
 
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(4, 2fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 30px;
 }
 
-.category-grid .category {
+.category {
   border: 1px solid #ccc;
-  padding: 6px;
+  padding: 20px;
   border-radius: 10px;
   transition: transform 0.3s ease;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
+  position: relative;
   -webkit-transition: transform 0.3s ease;
   -moz-transition: transform 0.3s ease;
   -ms-transition: transform 0.3s ease;
   -o-transition: transform 0.3s ease;
 }
 
-.category-grid .category button{
+.category button {
   width: 33px;
-  position:absolute;
-  translate: -20px -13px;
-  height: 0%;
+  height: 33px;
   border: 0px;
   cursor: pointer;
   background-color: transparent;
-}
-
-.category-grid .category button2{
-  width: 25px;
   position: absolute;
-  translate: 15px -13px;
-  height: 0%;
+  top: 10px;
+  left: 10px;
+}
+
+.category .edit-button {
+  width: 33px;
+  height: 33px;
   border: 0px;
   cursor: pointer;
   background-color: transparent;
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  right: 10px;
 }
 
-
-.category-grid .category:hover {
-  transform: translateY(-5px);
-  -webkit-transform: translateY(-5px);
-  -moz-transform: translateY(-5px);
-  -ms-transform: translateY(-5px);
-  -o-transform: translateY(-5px);
-}
-
-.category-grid .category img {
+.category img {
   width: 100%;
   border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+  margin-top: 20px; /* Ajuste de separación entre la imagen y los botones */
 }
 
-.category-grid .category h3 {
-  margin: 10px;
+.category h3 {
+  margin: 10px 0;
 }
 
-.category-grid .category h4 {
-  margin: 0px;
+.category h4 {
+  margin: 10px 0;
   color: #4caf50;
 }
 
-.category-grid .category h5 {
-  font-size: 10px;
-  margin: 0px;
+.category h5 {
+  font-size: 12px;
+  margin: 5px 0;
   color: #a8a8a8;
-}
-
-/* Estilos de las promociones especiales */
-.special-promotions {
-  text-align: center;
-  padding: 20px;
-}
-
-.promotions-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.promotions-grid .promotion {
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-  -webkit-transition: transform 0.3s ease;
-  -moz-transition: transform 0.3s ease;
-  -ms-transition: transform 0.3s ease;
-  -o-transition: transform 0.3s ease;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  
-}
-
-.promotions-grid .promotion button{
-  width: 33px;
-  position: absolute;
-  translate: -20px -18px;
-  height: 0%;
-  border: 0px;
-  cursor: pointer;
-  background-color: transparent;
-}
-
-.promotions-grid .promotion button2{
-  width: 25px;
-  position: absolute;
-  translate: 15px -18px;
-  height: 0%;
-  border: 0px;
-  cursor: pointer;
-  background-color: transparent;
-}
-.promotions-grid .promotion:hover {
-  transform: translateY(-5px);
-  -webkit-transform: translateY(-5px);
-  -moz-transform: translateY(-5px);
-  -ms-transform: translateY(-5px);
-  -o-transform: translateY(-5px);
-}
-
-.promotions-grid .promotion img {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.promotions-grid .promotion h3 {
-  margin-top: 10px;
-}
-
-.promotions-grid .promotion .btn {
-  display: inline-block;
-  background-color: #4caf50;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.promotions-grid .promotion .btn:hover {
-  background-color: #368039;
 }
 
 /* Estilos del pie de página */
@@ -221,16 +135,26 @@ box-sizing: border-box;
   background-color: #333;
   color: #fff;
   padding: 20px;
+  margin-top: 50px;
 }
 
 .footer .footer-content {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.footer .contact-info,
+.footer .social-media {
+  flex: 1;
+  margin: 10px;
 }
 
 .footer .contact-info h3,
 .footer .social-media h3 {
   color: #fff;
+  margin-bottom: 10px;
 }
 
 .footer .contact-info p {
@@ -239,12 +163,8 @@ box-sizing: border-box;
 
 .footer .social-media ul {
   list-style-type: none;
-  padding: 0;
-}
-
-.footer .social-media ul li {
-  display: inline;
-  margin-right: 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .footer .social-media ul li a {

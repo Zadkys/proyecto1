@@ -8,7 +8,7 @@ session_start();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Y C S</title>
+    <title>YCS - Inicia sesion o registrate</title>
     <link rel="stylesheet" href="logreg.css" />
   </head>
 

@@ -28,6 +28,51 @@ image {
   align-items: center;
 }
 
+/* Estilos de la barra de navegación */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.selec {
+  padding: 2px;
+  border: 5px solid #4caf50;
+  border-style: double;
+  border-radius: 5px;
+}
+
+.brand {
+  font-size: 24px;
+}
+
+.navbar nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar nav ul li a,
+.navbar nav ul li b {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar nav ul li a:hover,
+.navbar nav ul li b:hover {
+  background-color: #368039;
+  color: #4caf50;
+}
+
 /* Seleccion de barra de navegacion */
 .selec {
   padding: 2px;
@@ -115,26 +160,40 @@ image {
 }
 
 .container-cart-products{
+  color: #000000;
   position: absolute;
-  top: 50px;
+  top: 50px; /* Ajusta esta posición según tus necesidades */
   right: 0;
-
+  width: 300px; /* Tamaño del carrito */
   background-color: #fff;
-  width: 400px;
-  z-index: 1;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.20);
-  border-radius: 10px;
-  
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  overflow-y: auto; /* Agrega scroll si hay muchos productos */
 }
 
-.cart-product{
+.container-cart-products.hidden-cart {
+  display: none;
+}
+
+.container-cart-products:not(.hidden-cart) {
+  display: block;
+}
+
+.cart-product {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 30px;
+  padding: 10px;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
 
-  border-bottom: 1px solid rgba(0, 0, 0, 0.20);
-
+.cart-product img {
+  width: 50px; /* Tamaño de la imagen del producto en el carrito */
+  height: 50px;
+  margin-right: 10px;
 }
 
 .info-cart-product{
@@ -157,10 +216,10 @@ image {
   font-weight: 400;
   font-size: 20px;
 }
-
-.icon-close{
-  width: 25px;
-  height: 25px;
+.icon-close {
+  width: 20px; /* Tamaño deseado del ícono */
+  height: 20px;
+  cursor: pointer;
 }
 
 .icon-close:hover{
@@ -168,12 +227,11 @@ image {
   cursor: pointer;
 }
 
-.cart-total{
+.cart-total {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 0;
-  gap: 20px;
+  justify-content: space-between;
+  padding: 10px;
+  font-weight: bold;
 }
 
 .cart-total h3{
@@ -190,6 +248,14 @@ image {
   display: none;
 }
 
+/* Estilo para las imágenes de productos */
+.category img {
+  width: 100%; /* Ajusta el ancho al 100% del contenedor */
+  height: auto; /* Ajusta la altura automática según el ancho */
+  max-width: 100%; /* Asegura que el ancho máximo sea del 100% */
+  object-fit: cover; /* Cubre el contenedor manteniendo la relación de aspecto */
+  border-radius: 5px; /* Añade un borde redondeado opcional */
+}
 
 
 /* Estilos de productos en catalogo */
@@ -346,4 +412,22 @@ image {
 .footer .copyright {
   text-align: center;
   margin-top: 20px;
+}
+
+/* Estilos para el botón de checkout */
+#btn-checkout {
+  background-color: #4CAF50; /* Color de fondo */
+  color: white; /* Color del texto */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambiar cursor al pasar el ratón */
+  border-radius: 5px; /* Borde redondeado */
+  text-decoration: none; /* Sin subrayado */
+  transition: background-color 0.3s; /* Transición de color de fondo */
+}
+
+/* Estilos cuando se pasa el ratón sobre el botón */
+#btn-checkout:hover {
+  background-color: #317935; /* Color de fondo al pasar el ratón */
 }

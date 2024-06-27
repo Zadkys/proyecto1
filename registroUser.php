@@ -4,7 +4,7 @@ include "conexionUser.php";
 
     // Obtiene los datos del formulario
     $nombre = $_POST['fullname'];
-    $correo = $_POST['email'];
+    $correo = $_POST['correo'];
     $contra = $_POST['contra'];
     $Admin = false;
 
@@ -13,7 +13,7 @@ include "conexionUser.php";
 
     if ($sql) {
         // Registro exitoso, redirige al usuario a la página principal
-        header('Location: ./index.php');
+        header( 'Location: ./logreg.php');
         exit();
     } else {
         // Si ocurre un error durante el registro, muestra un mensaje de error

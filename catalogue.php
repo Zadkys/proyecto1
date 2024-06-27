@@ -1,9 +1,13 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ADMIN Ykdaz Clothes Store</title>
+  <title>YCS - Catálogo</title>
   <link rel="stylesheet" href="catalogue.css">
 </head>
 
@@ -16,116 +20,118 @@
       <ul>
         <li><a href="index.php">Inicio</a></li>
         <li><a class="selec" href="catalogue.php">Catálogo</a></li>
-        <li><a href="./catalogue.php#special-section">Ofertas</a></li>
-        <li><a href="contact.html">Contacto</a></li>
-        <li><a href="logreg.php" class="login-register">Iniciar sesión / Registrarse</a></li>
+        <li><a href="contact.php">Contacto</a></li>
+        <li>
+          <?php
+          if (!isset($_SESSION['correo'])) {
+            ?> <a class="login-register" href="logreg.php">Iniciar sesión / Registrarse</a>
+          <?php } else { ?>
+            <a class="login-register" href="cerrar.php">Cerrar Sesión</a>
+            <?php 
+            if($_SESSION['Admin']) {
+              ?>
+              <a class="login-register" href="catalogue_admin.php">[Catálogo Admin]</a>
+            <?php }} ?>
+        </li>
       </ul>
     </nav>
 
-    <!-- CARRITO -->
-    <div class="containerIcon" onclick="window.location.href = 'carrito.php';" style="cursor:pointer;" >
+    <!-- Carrito -->
+    <div class="container-icon">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-cart">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
       </svg>
 
-      <div class="count-producs">
+      <div class="count-products">
         <span id="contador-productos">0</span>
       </div>
 
       <div class="container-cart-products hidden-cart">
-        <div class="cart-product">
-          <div class="info-cart-product">
-            <span id="cantidad-producto-carrito">1</span>
-            <p class="titulo-producto-carrito">zapatos</p>
-            </div>
-            <span class="precio-producto-carrito">$80</span>
-
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-close">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
-          </svg>
-          
+        <div id="cart-products-container">
+          <!-- Aquí se cargarán los productos del carrito -->
         </div>
+        <div class="cart-total">
+          <h3>Total:</h3>
+          <span id="total-pagar">$0</span>
+        </div>
+        <button id="btn-checkout">Ir a la compra</button>
+
       </div>
-
-      <div class="cart-total"></div>
-      <h3>Total:</h3>
-      <span id="total-pagar">$0</span>
     </div>
-
   </header>
 
-    <!-- productos: -->
-    <section class="featured-categories">
-      <h2>Catálogo:</h2><br>
+  <!-- productos: -->
+  <section class="featured-categories">
+    <h2>Catálogo:</h2><br>
 
-      <div style="display: flex; margin-bottom: 100px;">
+    <div style="display: flex; margin-bottom: 100px;">
       <form action="catalogueSerch.php" method="POST">
         <input type="text" name="key">
         <input type="submit" value="Buscar"></input>
-    </form></div>
+      </form>
+    </div>
 
-      <div class="category-grid">
+    <div class="category-grid">
 
       <?php
-        include "conexionUser.php"; // Incluye el archivo de conexión
-        
-        // Consulta SQL para obtener todos los productos
-        $sql = mysqli_query($con, "SELECT * FROM product");
+      include "conexionUser.php"; // Incluye el archivo de conexión
+      
+      // Consulta SQL para obtener todos los productos
+      $sql = mysqli_query($con, "SELECT * FROM product");
 
-        // Verifica si se encontraron productos
-        if (mysqli_num_rows($sql) > 0) {
-            while ($row = mysqli_fetch_array($sql)) {
-                ?>
-                <div class="category">
+      // Verifica si se encontraron productos
+      if (mysqli_num_rows($sql) > 0) {
+          while ($row = mysqli_fetch_array($sql)) {
+              ?>
+              <div class="category">
 
-                        <img src="<?php echo $row['link'] ?>" alt="<?php echo $row['nombre'] ?>">
+                      <img src="<?php echo $row['link'] ?>" alt="<?php echo $row['nombre'] ?>">
 
-                        <h3><?php echo $row['nombre'] ?></h3>
-                        <h4>$ <?php echo $row['precio'] ?></h4>
-                        <h5> <?php echo $row['specs'] ?></h5>
+                      <h3><?php echo $row['nombre'] ?></h3>
+                      <h4>$ <?php echo $row['precio'] ?></h4>
+                      <h5> <?php echo $row['specs'] ?></h5>
 
-                        <form action="agregarCarrito.php" method="POST">
-                            <input type="hidden" value="<?php echo $row['nombre']; ?>" name="nombre">
-                            <input type="hidden" value="<?php echo $row['precio']; ?>" name="precio">
-                            <input type="hidden" value="<?php echo $row['specs']; ?>" name="specs">
-                            <input type="hidden" value="<?php echo $row['link']; ?>" name="link">
-                            <input type="submit">Agregar al carrito</input>
-                        </form>
-                </div>
-                <?php
-            }
-        } else {
-            echo "No se encontraron productos.";
-        }
+                      <form action="agregarCarrito.php" method="POST">
+                          <input type="hidden" value="<?php echo $row['nombre']; ?>" name="nombre">
+                          <input type="hidden" value="<?php echo $row['precio']; ?>" name="precio">
+                          <input type="hidden" value="<?php echo $row['specs']; ?>" name="specs">
+                          <input type="hidden" value="<?php echo $row['link']; ?>" name="link">
+                          <input type="submit" value="Agregar al carrito">
+                      </form>
+              </div>
+              <?php
+          }
+      } else {
+          echo "No se encontraron productos.";
+      }
 
-        // Cerrar la conexión
-        mysqli_close($con);
-        ?>
+      // Cerrar la conexión
+      mysqli_close($con);
+      ?>
 
-        <!-- Agrega más productos aquí con la misma sintaxis-->
+      <!-- Agrega más productos aquí con la misma sintaxis-->
+    </div>
+  </section>
+  
+  <!-- Promociones Especiales -->
+  <section class="special-promotions">
+    <h2>Promociones Especiales</h2>
+    <div class="promotions-grid">
+      <div class="promotion">
+        <img src="https://via.placeholder.com/300x200" alt="">
+        <h3>¡Descuento del 20% en Ropa para Mujeres!</h3>
+        <p>¡Aprovecha esta oferta especial por tiempo limitado! Solo por hoy obtén un 20% de descuento en toda nuestra colección de ropa para mujeres.</p>
+        <a href="#" class="btn">Ver Oferta</a>
       </div>
-    </section>
-    
-    <!-- Promociones Especiales -->
-    <section class="special-promotions">
-      <h2>Promociones Especiales</h2>
-      <div class="promotions-grid">
-        <div class="promotion">
-          <img src="https://via.placeholder.com/300x200" alt="">
-          <h3>¡Descuento del 20% en Ropa para Mujeres!</h3>
-          <p>¡Aprovecha esta oferta especial por tiempo limitado! Solo por hoy obtén un 20% de descuento en toda nuestra colección de ropa para mujeres.</p>
-          <a href="#" class="btn">Ver Oferta</a>
-        </div>
-        <div class="promotion">
-          <img src="https://via.placeholder.com/300x200" alt="">
-          <h3>Zapatos de Diseñador a Mitad de Precio</h3>
-          <p>¡No te pierdas esta oportunidad única! Todos nuestros zapatos de diseñador ahora tienen un 50% de descuento. ¡Corre antes de que se agoten!</p>
-          <a href="#" class="btn">Ver Oferta</a>
-        </div>
-        <!-- Agrega más promociones aquí con la misma sintaxis -->
+      <div class="promotion">
+        <img src="https://via.placeholder.com/300x200" alt="">
+        <h3>Zapatos de Diseñador a Mitad de Precio</h3>
+        <p>¡No te pierdas esta oportunidad única! Todos nuestros zapatos de diseñador ahora tienen un 50% de descuento. ¡Corre antes de que se agoten!</p>
+        <a href="#" class="btn">Ver Oferta</a>
       </div>
-    </section>
-  </main>
+      <!-- Agrega más promociones aquí con la misma sintaxis -->
+    </div>
+  </section>
   
   <!-- Pie de página -->
   <footer class="footer">
@@ -148,5 +154,6 @@
     </div>
   </footer>
 
+  <script src="carrito.js"></script>
 </body>
 </html>

@@ -22,6 +22,10 @@ header p {
     left: 50%;
     transform: translate(-50%, -520%);
     border-bottom: 2px solid silver;
+    -webkit-transform: translate(-50%, -520%);
+    -moz-transform: translate(-50%, -520%);
+    -ms-transform: translate(-50%, -520%);
+    -o-transform: translate(-50%, -520%);
 }
 
 body {

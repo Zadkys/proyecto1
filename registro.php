@@ -16,6 +16,3 @@ echo "usuario resgistrado";
     echo"Error al registrar";
 }
 ?>
-
-
-

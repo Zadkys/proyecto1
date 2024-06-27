@@ -1,24 +1,13 @@
-/* predeterminados globales */
-*{font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;;}
-
-*{
+/* Estilos globales */
+body {
   margin: 0;
-padding: 0;
-box-sizing: border-box;
-}
-
-body{
-  margin: 0 auto;
   max-width: 1200px;
-  font-family: 'Lato';
+  margin: 0 auto;
+  font-family: 'Lato', sans-serif;
   color: #333;
 }
 
-image {
-  max-width: 100%;
-}
-
-/* BARRA DE NAVEGACION */
+/* Estilos de la barra de navegación */
 .navbar {
   background-color: #333;
   color: #fff;
@@ -26,53 +15,51 @@ image {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 20px;
 }
 
-/* Seleccion de barra de navegacion */
 .selec {
   padding: 2px;
   border: 5px solid #4caf50;
-  border-style:double ;
+  border-style: double;
   border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
 }
 
-.icon-cart {
-  width: 30px;
-  height: 30px;
-}
 .brand {
   font-size: 24px;
 }
 
-.selec {
-  padding: 2px;
-  border: 5px solid #4caf50;
-  border-style:double ;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  -o-border-radius: 5px;
+.navbar nav ul {
+  list-style-type: none;
+  display: flex;
+  gap: 20px;
 }
 
+.navbar nav ul li a,
 .navbar nav ul li b {
-  text-decoration: none;
-  transition: color 0.3s ease;
-  display: inline-block;
-  background-color: #4caf50;
   color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease;
+  display: inline-block;
   padding: 10px 20px;
   border-radius: 5px;
-  transition: background-color 0.3s ease;
   cursor: pointer;
 }
 
+.navbar nav ul li a:hover,
 .navbar nav ul li b:hover {
   background-color: #368039;
+  color: #4caf50;
+}
+
+/* Barra de navegación */
+.navbar {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navbar nav ul {
@@ -95,96 +82,72 @@ image {
   color: #4caf50;
 }
 
-/* Estilos de la sección de Misión y Visión */
+/* Sección de Contacto y Redes Sociales */
+.special-promotions {
+  text-align: center;
+  padding: 20px;
+}
+
+.special-promotions .title {
+  font-size: 36px;
+  color: #4caf50;
+  margin-bottom: 20px;
+}
+
+.special-promotions h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.special-promotions .social-button {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.special-promotions .social-button:hover {
+  color: #4caf50;
+}
+
+/* Línea decorativa */
+.line {
+  border-bottom: 5px double #333;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+/* Sección de Misión y Visión */
 .mission-vision {
   text-align: center;
   padding: 20px;
 }
 
-.mission-vision h2 {
+.mission-vision h1 {
+  font-size: 36px;
   color: #333;
+  margin-bottom: 20px;
+}
+
+.mission-vision h2 {
+  font-size: 24px;
+  color: #4caf50;
+  margin-bottom: 10px;
 }
 
 .mission-vision p {
+  font-size: 18px;
+  line-height: 1.6;
   color: #666;
   margin-left: 10%;
   margin-right: 10%;
 }
 
-/* Contacto */
-.special-promotions {
-  text-align: center;
-  padding: 0px;
-}
-
-.special-promotions .social-button {
-  text-decoration: none;
-  text-align: center;
-  padding: 0px;
-  color: #333;
-  
-}
-
-.special-promotions .social-button:hover{
-  color: #368039;
-}
-
-.special-promotions .title {
-  text-align: center;
-  padding: 0px;
-  font-size: 50px;
-  border-radius: 5px #4caf50;
-  -webkit-border-radius: 5px #4caf50;
-  -moz-border-radius: 5px #4caf50;
-  -ms-border-radius: 5px #4caf50;
-  -o-border-radius: 5px #4caf50;
-}
-
-.promotions-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-
-.promotions-grid .promotion {
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  transition: transform 0.3s ease;
-}
-
-.promotions-grid .promotion:hover {
-  transform: translateY(-5px);
-}
-
-.promotions-grid .promotion img {
-  width: 100%;
-  border-radius: 5px;
-}
-
-.promotions-grid .promotion h3 {
-  margin-top: 10px;
-}
-
-.promotions-grid .promotion .btn {
-  display: inline-block;
-  background-color: #4caf50;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
-}
-
-.promotions-grid .promotion .btn:hover {
-  background-color: #368039;
-}
-
-/* Estilos del pie de página */
+/* Pie de página */
 .footer {
   background-color: #333;
   color: #fff;
   padding: 20px;
+  margin-top: 20px;
 }
 
 .footer .footer-content {
@@ -224,10 +187,4 @@ image {
 .footer .copyright {
   text-align: center;
   margin-top: 20px;
-}
-
-.line {
-  border-bottom: 5px double #333;
-  margin-left: 10%;
-  margin-right: 10%; 
 }

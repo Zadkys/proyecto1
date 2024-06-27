@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -7,43 +9,49 @@
   <link rel="stylesheet" href="contact.css">
 </head>
 <body>
+
   <!-- Barra de navegación -->
   <header class="navbar">
     <div class="brand">Ykdaz Clothes Store</div>
     <nav>
       <ul>
         <li><a href="index.php">Inicio</a></li>
-        <li><a href="catalogue.php">Catalogo</a></li>
-        <li><a href="./catalogue.php#special-section">Ofertas</a></li>
-        <li><a class="selec" href="#">Contacto</a></li>
-        <li><a href="logreg.php" class="login-register">Iniciar sesión / Registrarse</a></li>
+        <li><a href="catalogue.php">Catálogo</a></li>
+        <li><a class="selec" href="contact.php">Contacto</a></li>
+        <li>
+          <?php if (!isset($_SESSION['correo'])) { ?>
+            <a class="login-register" href="logreg.php">Iniciar sesión / Registrarse</a>
+          <?php } else { ?>
+            <a class="login-register" href="cerrar.php">Cerrar Sesión</a>
+            <?php if ($_SESSION['Admin']) { ?>
+              <a class="login-register" href="catalogue_admin.php">Catálogo Admin</a>
+            <?php } ?>
+          <?php } ?>
+        </li>
       </ul>
-      <div class="containerIcon">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="icon-cart">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
-        </svg>
     </nav>
   </header>
-  
-    <!-- contacto -->
-    <section class="special-promotions">
-      <h2 class="title">Contacto:</h2>
-      <h2>Teléfono: 33 2514 6368</h2>
-      <h2>Correo electrónico: zadkysan@gmail.com</h2>
-    </section>
-    <section class="special-promotions">
-      <h2 class="title">Redes Sociales:</h2>
-      <h2><a class="social-button" href="#">Facebook</a></h2>
-      <h2><a class="social-button" href="#">Instagram</a></h2>
-    </section>
-
-    <section class="line"></section>
-
-  </main>
 
   <!-- Contenido principal -->
   <main class="container">
-    <!-- Misión y Visión -->
+    <!-- Sección de Contacto -->
+    <section class="special-promotions">
+      <h2 class="title">Contacto:</h2>
+      <h3>Teléfono: 33 2514 6368</h3>
+      <h3>Correo electrónico: zadkysan@gmail.com</h3>
+    </section>
+
+    <!-- Sección de Redes Sociales -->
+    <section class="special-promotions">
+      <h2 class="title">Redes Sociales:</h2>
+      <h3><a class="social-button" href="#">Facebook</a></h3>
+      <h3><a class="social-button" href="#">Instagram</a></h3>
+    </section>
+
+    <!-- Línea decorativa -->
+    <section class="line"></section>
+
+    <!-- Sección de Misión y Visión -->
     <section class="mission-vision">
       <div class="mission">
         <h1>Acerca de:</h1>
@@ -55,11 +63,8 @@
         <p>Nos esforzamos por convertirnos en la marca de ropa más reconocida y respetada en el mercado, estableciendo un estándar de excelencia en moda juvenil. Nuestra visión es crear un mundo donde la moda no solo sea una expresión de estilo personal, sino también una herramienta para empoderar a nuestros clientes, inspirándolos a expresar su individualidad y confianza a través de la ropa que usan. Buscamos ser un símbolo de calidad, creatividad y autenticidad en la industria de la moda, destacando por nuestra innovación, integridad y compromiso con la satisfacción del cliente.</p>
       </div>
     </section>
+  </main>
 
-        <!-- Agrega más categorías aquí -->
-      </div>
-    </section>
-  
   <!-- Pie de página -->
   <footer class="footer">
     <div class="footer-content">
@@ -80,5 +85,6 @@
       &copy; 2024 Ykdaz Clothes Store. Todos los derechos reservados.
     </div>
   </footer>
+
 </body>
 </html>

@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 ?>
 
 <!DOCTYPE html>
@@ -8,7 +7,7 @@ session_start();
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ykdaz Clothes Store</title>
+    <title>Y C S - home</title>
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
@@ -19,8 +18,7 @@ session_start();
         <ul>
           <li><a class="selec" href="index.php">Inicio</a></li>
           <li><a href="catalogue.php">Cátalogo</a></li>
-          <li><a href="#">Ofertas</a></li>
-          <li><a href="contact.html">Contacto</a></li>
+          <li><a href="contact.php">Contacto</a></li>
           <li>
           <?php
             if (!isset($_SESSION['correo'])) {
@@ -32,7 +30,7 @@ session_start();
               <?php 
               if($_SESSION['Admin']){
                 ?>
-              <a class="login-register" href="catalogue_admin.php" >Catalogo Admin</a>
+              <a class="login-register" href="catalogue_admin.php" >[Catalogo Admin]</a>
 
           <?php }} ?>
           </li>

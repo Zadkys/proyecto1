@@ -16,21 +16,45 @@ session_start();
       <div class="brand">Ykdaz Clothes Store</div>
       <nav>
         <ul>
-          <li><a href="index.php">Inicio</a></li>
-          <li><a href="catalogue.php">Catálogo</a></li>
-          <li><a href="#">Ofertas</a></li>
+          <li><a class="selec" href="index.php">Inicio</a></li>
+          <li><a href="catalogue.php">Cátalogo</a></li>
           <li><a href="contact.html">Contacto</a></li>
           <li>
-            <a href="logreg.php" class="login-register"
+          <?php
+            if (!isset($_SESSION['correo'])) {
+                    ?> <a class="login-register" href="logreg.php"
               >Iniciar sesión / Registrarse</a
             >
+            <?php }else{ ?>
+              <a class="login-register" href="cerrar.php" >Cerrar Sesion</a>
+              <?php 
+              if($_SESSION['Admin']){
+                ?>
+              <a class="login-register" href="catalogue_admin.php" >Catalogo Admin</a>
+
+          <?php }} ?>
           </li>
-          <li><a href="#" class="cart-icon">Carrito</a></li>
         </ul>
       </nav>
-    </header>
 
     <!-- Contenido principal -->
+    <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Sitio Web</title>
+    <!-- Enlace a carrito.css -->
+    <link rel="stylesheet" href="carrito.css">
+</head>
+<body>
+    <!-- Contenido de tu página -->
+    
+    <!-- Al final del body -->
+    <script src="carrito.js"></script>
+</body>
+</html>
+
     <main class="container">
       <!-- Carrito de Compras -->
       <section class="shopping-cart">
@@ -43,8 +67,6 @@ session_start();
         <h3><?php echo $_SESSION['precio']; ?></h3>
 
         <p><?php echo $_SESSION['specs']; ?></p>
-
-
 
         </div>
         <div class="cart-summary">
